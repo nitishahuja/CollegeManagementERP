@@ -11,12 +11,13 @@
          <ul class="primary-nav">
            <?php
                $query = "SELECT * FROM categories";
-               $select_all_categories_query = mysqli_query($connection,$query);                     $titles = array();
+               $select_all_categories_query = mysqli_query($connection,$query);                  
+               $titles = array();
                  while($row = mysqli_fetch_assoc($select_all_categories_query))
                    {
                      $titles[]=$row['cat_title'];
                    } 
-                 foreach( $titles as $title)
+                 foreach($titles as $title)
                    {
                      if($title =='Fee Payment')
                        {
@@ -48,10 +49,10 @@
                                <li><a href="feedback.php"><?php echo $title; ?></a></li>
                              <?php    
                            }
-                         else
+                         else if($title == 'Logout')
                            {
                              ?>
-                               <li><a href="#"><?php echo $title; ?></a></li>  
+                               <li><a href="index.php"><?php echo $title; ?></a></li>  
                              <?php         
                            } 
                      } 

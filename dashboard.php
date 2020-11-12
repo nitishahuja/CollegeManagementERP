@@ -9,44 +9,40 @@
 <?php 
     include "header.php";?>
       <?php include "navbar.php"; ?>
-           <div class="col-lg-12 text-center" style="margin-top:100px;">
+           <div class="col-lg-12" style="margin-top:100px;">
                <div class=row>
                    <div class="col-lg-8">
-                    
-                       <h1 class="page-header"> Home </h1>
-                    <hr>
-                    <div id="notice"><h2>Notice Board</h2></div>
+                       <h1 class="page-header text-center">Home </h1>
+                    <h2 class="text-center">Notice Board</h2>
                 </h1>
+                <hr>
                 <?php 
-                $query = "SELECT * FROM posts";
+                $query = "SELECT * FROM posts ORDER BY DATE (post_date) DESC";
                 $select_all_post_query = mysqli_query($connection,$query);                 
                 $titles = array();
                 while($row = mysqli_fetch_assoc($select_all_post_query ))
                  {
-                    $post_title = $row['post_title'];
-                    $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
-                    $post_image = $row['post_image'];
-                    $post_content = $row['post_content'];
-                 }
-                       ?>
+                  ?>
                 <h2>
                 <small><?php echo $post_title; ?> </small>
                 </h2>
+                <img class="img-fluid" src="./assets/images/<?php echo $row['post_image']; ?>">    
+                <hr>
+                <p><?php echo $row['post_content']; ?> </p>
                 <p class="lead">
                    <small>
-                    by <?php echo $post_author; ?>
+                    by <?php echo $row['post_author']; ?>
                 </small>
                 </p>
-                <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date; ?> </p>
+                <p><span class="glyphicon glyphicon-time"></span> <?php echo $row['post_date']; ?> </p>
                 <hr>
-                <img class="img-responsive m-0" src="./assets/images/<?php echo $post_image; ?>" alt="" style="height:1020px;width:700px;">    
-                <hr>
-                <p><?php echo $post_content; ?> </p>
+                <?php
+              }
+              ?>
                 <a class="btn btn-primary form-control" href="NoticeBoard.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
              </div>
-                   <div class="col-lg-4" style="margin-top:20px;"> 
+                   <div class="col-lg-4 text-center" style="margin-top:20px;"> 
                    <div class="well" style="height:700px;background-color:#376CA0;border-radius:4px;">
                   <h3 class="page-header">
                     <div id="notice">Welcome, <?php
@@ -96,26 +92,35 @@
                       <br>
                        <a href="xxx.php"><button type="button" class="btn btn-primary btn-lg btn-block my-2" style="margin-left:2px;margin-top:-60px;">Check Out Profile<span class="glyphicon glyphicon-chevron-right"></button></a>
                        </div>
-                     <div class="well bg-dark">  
+                     <div class="well bg-dark vertical-scrollable">  
                       <br>
                        <div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading">Covid-19!</h4>
-  <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
-  <hr>
+                          <h4 class="alert-heading">Covid-19!</h4>
+                          <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
+                          <hr>
                            <p class="mb-0">Keep touch with the college website to further apprehend on the situation<a href="#" style="color:indianred;"><span class="glyphicon glyphicon-chevron-right"></a> </p>
                          </div>
-                          
                            <hr>
-                          
                            <div class="alert alert-success" role="alert">
-  <h4 class="alert-heading">Covid-19!</h4>
-  <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
-  <hr>
+                            <h4 class="alert-heading">Covid-19!</h4>
+                            <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
+                            <hr>
                            <p class="mb-0">Keep touch with the college website to further apprehend </a> </p>
                            <p class="mb-0">Keep touch with the college website to further apprehend on the situation <a href="#" style="color:green;"><span class="glyphicon glyphicon-chevron-right"></a> </p>
-                           
                     </div>
-                   <a href="#"><button type="button" class="btn btn-primary btn-lg btn-block">Read More<span class="glyphicon glyphicon-chevron-right"></button></a>
+                    <div class="alert alert-danger" role="alert">
+                          <h4 class="alert-heading">Covid-19!</h4>
+                          <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
+                          <hr>
+                           <p class="mb-0">Keep touch with the college website to further apprehend on the situation<a href="#" style="color:indianred;"><span class="glyphicon glyphicon-chevron-right"></a> </p>
+                         </div>
+                           <div class="alert alert-success" role="alert">
+                            <h4 class="alert-heading">Covid-19!</h4>
+                            <p>In view of the evolving situation on the spread of Novel Coronavirus(Covid-19),the advisories issued by WHO and Central government and as a matter of abundant precaution to check its spread, it has been decided that all educational institues will remain closed till further updates.</p>
+                            <hr>
+                           <p class="mb-0">Keep touch with the college website to further apprehend </a> </p>
+                           <p class="mb-0">Keep touch with the college website to further apprehend on the situation <a href="#" style="color:green;"><span class="glyphicon glyphicon-chevron-right"></a> </p>
+                    </div>
                  </div>
                 </div>  
                </div>

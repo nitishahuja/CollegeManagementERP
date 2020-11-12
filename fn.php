@@ -25,7 +25,7 @@ if(isset($_POST['submit']))
     
     if(!$result)
     {
-        die("QUERY FAILED". mysql_error());
+        die("QUERY FAILED");
     }
     else if($result)
     {

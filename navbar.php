@@ -42,6 +42,12 @@
                                <li><a href="academics.php"><?php echo $title; ?></a></li>
                              <?php    
                            }
+                         else if($title=='Help')
+                           {
+                             ?>
+                               <li><a href="feedback.php"><?php echo $title; ?></a></li>
+                             <?php    
+                           }
                          else
                            {
                              ?>

@@ -5,7 +5,6 @@
     
     $EnrollmentNo = $_SESSION['login_user'];
 }
-
 ?>
 <?php 
     include "header.php";?>
@@ -29,7 +28,7 @@
                     $post_date = $row['post_date'];
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
-                    
+                 }
                        ?>
                 <h2>
                 <small><?php echo $post_title; ?> </small>
@@ -46,9 +45,6 @@
                 <p><?php echo $post_content; ?> </p>
                 <a class="btn btn-primary form-control" href="NoticeBoard.php">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                 <hr>
-               <?php
-                 }
-               ?>
              </div>
                    <div class="col-lg-4" style="margin-top:20px;"> 
                    <div class="well" style="height:700px;background-color:#376CA0;border-radius:4px;">
@@ -61,31 +57,22 @@
                         while($data = mysqli_fetch_array($select_user_profile_query)) {
 
                             $user_name = $data['Name'];
+                            $user_image = $data['Photo'];
+                            $user_mail = $data['Gmail'];
+                            $user_number = $data['Contact_No'];
+                          }
                             echo $user_name;
-                        }
                         ?>
-                  
                         </div>
-           
                    </h3>
                    <br>
                    <br>
                     <center>
-                   <img class="img-responsive" src="https://blogtimenow.com/wp-content/uploads/2014/06/hide-facebook-profile-picture-notification.jpg" class="img-fluid">
+                   <img src="<?php echo $user_image; ?>" class="img-fluid">
                    </center>
                    <br>
                 <hr>
-                <?php
-                       $query = "SELECT * FROM PersonalDetails WHERE EnrollmentNo = '{$EnrollmentNo}' ";
-    
-                        $select_user_profile_query = mysqli_query($connection, $query);
 
-                        while($data = mysqli_fetch_array($select_user_profile_query)) {
-
-                            // $user_name = $data['Name'];
-                            $user_mail = $data['Gmail'];
-                            $user_number = $data['Contact_No'];
-         ?>
               
             <table align="center" border="1px" style="width:90%; height:30%">
                     <tr>
@@ -103,10 +90,6 @@
                        </tr>
                    
                        </table>
-                       
-                       <?php
-                        }
-                        ?>
                       <br>
                       <br>
                       <br>
